@@ -1,0 +1,187 @@
+{% extends 'template-one.html.twig' %}
+
+
+
+
+
+{% block body %}
+
+
+
+    <section class="mb-lg-10 mt-lg-14 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-6">
+                        {% for i in pimcore_block('content-categories-f').iterator %}
+                            <h3 class="mb-0">{{ pimcore_input('featured-categories') }}</h3>
+                        {% endfor %}
+                </div>
+            </div>
+            <div  id="carouselExampleSlidesOnly" class="carousel slide row my-5 mx-auto" data-bs-ride="carousel">
+                <div class="slick-list draggable carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row mx-auto">
+                            {% for category in categories|slice(0, 4) %}
+                                <div class="item slick-slide slick-cloned col-3" tabindex="-1" data-slick-index="-4" id="" aria-hidden="true">
+                                    <a href="/product-category-info/{{ category.id }}" class="text-decoration-none text-inherit" tabindex="-1">
+                                        <div class="card card-product mb-lg-4">
+                                            <div class="card-body text-center py-5">
+                                                {% if  category.category_image %}
+                                                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{{ category.category_image.thumbnail('Products') }}" alt="">
+                                                {% else %}
+                                                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://via.placeholder.com/140x140" alt="">
+                                                {% endif %}
+                                                <div class="text-truncate">{{ category.name }}</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row mx-auto">
+                            {% for category in categories|slice(4, 8) %}
+                                <div class="item slick-slide slick-cloned col-3" tabindex="-1" data-slick-index="-4" id="" aria-hidden="true">
+                                    <a href="/product-category-info/{{ category.id }}" class="text-decoration-none text-inherit" tabindex="-1">
+                                        <div class="card card-product mb-lg-4">
+                                            <div class="card-body text-center py-5">
+                                                {% if  category.category_image %}
+                                                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{{ category.category_image.thumbnail('Products') }}" alt="">
+                                                {% else %}
+                                                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://via.placeholder.com/140x140" alt="">
+                                                {% endif %}
+                                                <div class="text-truncate">{{ category.name }}</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <p><a class="btn btn-secondary " href="/categories">More Categories</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container marketing mt-5">
+
+        <div class="row">
+            <div class="col-12 mb-6">
+                {% for i in pimcore_block('content-products-f').iterator %}
+                    <h3 class="mb-0">{{ pimcore_input('featured-products') }}</h3>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            {% for product in products |slice(0, 8)  %}
+                <div class="col-3 text-center my-5">
+                    {% if  product.product_image %}
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{{ product.product_image.thumbnail('Products') }}" alt="">
+                    {% else %}
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://via.placeholder.com/140x140" alt="">
+                    {% endif %}
+                    <h2 class="fw-normal">{{ product.product_name }}</h2>
+                    <p>{{ product.price }}</p>
+                    <p><a class="btn btn-secondary" href="/product-info/{{ product.id }}">View details »</a></p>
+                </div>
+            {% endfor %}
+            <div class="col-12 text-center">
+                <p><a class="btn btn-secondary " href="/products">More Products</a></p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+                <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+            </div>
+            <div class="col-md-5">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+                <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+            </div>
+            <div class="col-md-5">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+        <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <p class="text-muted">© 2022</p>
+        </div>
+
+        <div class="col mb-3">
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

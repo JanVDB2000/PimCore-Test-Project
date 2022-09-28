@@ -1,0 +1,21 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    Products:
+                        items: {  }
+                        medias: {  }
+                        name: Products
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1664368987
+                        creationDate: 1664368987
+                        preserveAnimation: false

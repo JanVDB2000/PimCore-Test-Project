@@ -1,0 +1,96 @@
+{% extends 'template-one.html.twig' %}
+{% block body %}
+
+    {% for i in pimcore_block('contentblock').iterator %}
+        <h2>{{ pimcore_input('subline') }}</h2>
+        {{ pimcore_wysiwyg('content') }}
+    {% endfor %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+                    <ul class="list-unstyled ps-0">
+                        <li class="mb-1">
+                            <button class="btn btn-toggle border fs-2 d-inline-flex align-items-center rounded border-2 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                                Categories
+                            </button>
+                            <div class="collapse ml-5 mt-5 border border-2 rounded" id="home-collapse">
+                                <ul class="btn-toggle-nav ml-5 list-unstyled fw-normal pb-1 small">
+                                    {% for category in categories %}
+                                    <li><a href="/product-category-info/{{ category.id }}" class="link-dark d-inline-flex text-decoration-none rounded"><h5 class="p-3">{{ category.name }}</h5></a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9 row">
+                {% for product in products %}
+
+                    <div class="col-3 text-center">
+                    {% if  product.product_image %}
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{{ product.product_image.thumbnail('Products') }}" alt="">
+                    {% else %}
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://via.placeholder.com/140x140" alt="">
+                    {% endif %}
+                        <h2 class="fw-normal">{{ product.product_name }}</h2>
+                        <p>Price :{{ product.price }}</p>
+                        <p><a class="btn btn-secondary" href="/products/product-info/{{ product.id }}">View details »</a></p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block footer %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+        <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <p class="text-muted">© 2022</p>
+        </div>
+
+        <div class="col mb-3">
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
