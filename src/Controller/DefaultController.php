@@ -69,14 +69,11 @@ class DefaultController extends FrontendController
     {
         $product = DataObject\Product::getById($id);
 
-        /*$category = $product->*/
-
-
-
+        $category = $product->getCategories_product();
 
         return $this->render('default/product-info.html.twig', [
             'product'=> $product,
-          /*  'category'=> $category,*/
+            'categories'=> $category,
         ]);
     }
 

@@ -8,6 +8,7 @@
  * - product_name [input]
  * - price [numeric]
  * - product_image [image]
+ * - Categories_product [reverseObjectRelation]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -16,7 +17,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Product',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1664445270,
+   'modificationDate' => 1664450450,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -150,6 +151,45 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'height' => '',
              'uploadPath' => '',
           )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\ReverseObjectRelation::__set_state(array(
+             'name' => 'Categories_product',
+             'title' => 'Categories _product',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'fieldtype' => 'reverseObjectRelation',
+             'relationType' => true,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => true,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'classes' => 
+            array (
+            ),
+             'pathFormatterClass' => '',
+             'width' => '',
+             'height' => '',
+             'maxItems' => NULL,
+             'visibleFields' => NULL,
+             'allowToCreateNewObject' => true,
+             'optimizedAdminLoading' => false,
+             'enableTextSelection' => false,
+             'visibleFieldDefinitions' => 
+            array (
+            ),
+             'ownerClassName' => 'Category',
+             'ownerClassId' => NULL,
+             'ownerFieldName' => 'Products_categories',
+             'lazyLoading' => true,
+          )),
         ),
          'locked' => false,
          'blockedVarsForExport' => 
@@ -209,46 +249,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'enableGridLocking' => false,
    'deletedDataComponents' => 
   array (
-    0 => 
-    Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
-       'name' => 'Categories_products',
-       'title' => 'Categories _products',
-       'tooltip' => '',
-       'mandatory' => false,
-       'noteditable' => false,
-       'index' => false,
-       'locked' => false,
-       'style' => '',
-       'permissions' => NULL,
-       'datatype' => 'data',
-       'fieldtype' => 'manyToManyObjectRelation',
-       'relationType' => true,
-       'invisible' => false,
-       'visibleGridView' => false,
-       'visibleSearch' => true,
-       'blockedVarsForExport' => 
-      array (
-      ),
-       'classes' => 
-      array (
-        0 => 
-        array (
-          'classes' => 'Category',
-        ),
-      ),
-       'pathFormatterClass' => '',
-       'width' => '',
-       'height' => '',
-       'maxItems' => NULL,
-       'queryColumnType' => 'text',
-       'visibleFields' => 'id,name,category_image,Products_categories',
-       'allowToCreateNewObject' => true,
-       'optimizedAdminLoading' => false,
-       'enableTextSelection' => true,
-       'visibleFieldDefinitions' => 
-      array (
-      ),
-    )),
   ),
    'blockedVarsForExport' => 
   array (
