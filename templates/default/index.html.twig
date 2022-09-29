@@ -88,7 +88,7 @@
                         <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://via.placeholder.com/140x140" alt="">
                     {% endif %}
                     <h2 class="fw-normal">{{ product.product_name }}</h2>
-                    <p>{{ product.price }}</p>
+                    <p>${{ product.price }}</p>
                     <p><a class="btn btn-secondary" href="/product-info/{{ product.id }}">View details »</a></p>
                 </div>
             {% endfor %}

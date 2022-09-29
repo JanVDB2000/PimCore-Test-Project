@@ -16,7 +16,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Category',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1664373676,
+   'modificationDate' => 1664446092,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -95,9 +95,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'width' => '',
              'height' => '',
              'maxItems' => NULL,
-             'visibleFields' => 'product_name,price,product_image,id',
+             'visibleFields' => 'product_name,product_image,price,id',
              'allowToCreateNewObject' => false,
-             'optimizedAdminLoading' => false,
+             'optimizedAdminLoading' => true,
              'enableTextSelection' => false,
              'visibleFieldDefinitions' => 
             array (

@@ -3,13 +3,13 @@ pimcore:
         definitions:
             d0cf1798-bc5a-45bc-99e2-24818a4cbdca:
                 name: product-info
-                pattern: '/\/product-info\/([^]+)([0-9]+)'
-                reverse: /product-info/%s
+                pattern: '/\/products\/product-info\/([0-9]+)/'
+                reverse: products/product-info/%s
                 controller: 'App\Controller\DefaultController::productInfoPage'
                 variables: id
-                defaults: ''
+                defaults: '14'
                 siteId: {  }
                 methods: {  }
                 priority: 1
                 creationDate: 1664370681
-                modificationDate: 1664370895
+                modificationDate: 1664436150

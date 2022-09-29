@@ -1,0 +1,15 @@
+pimcore:
+    staticroutes:
+        definitions:
+            9530f57f-db83-4846-bf6f-7ecce9083185:
+                name: product-category-info
+                pattern: '/\/categories\/product-category-info\/([0-9]+)/'
+                reverse: categories/product-category-info/%s
+                controller: 'App\Controller\DefaultController::productCategory'
+                variables: id
+                defaults: '6'
+                siteId: {  }
+                methods: {  }
+                priority: 1
+                creationDate: 1664435453
+                modificationDate: 1664436125

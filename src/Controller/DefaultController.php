@@ -6,6 +6,7 @@ use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends FrontendController
 {
@@ -36,7 +37,6 @@ class DefaultController extends FrontendController
         $categories = DataObject\Category::getList();
 
         return $this->render('default/categories.html.twig', [
-            'controller_name' => 'FrontEndController',
             'categories'=> $categories,
         ]);
     }
@@ -64,14 +64,38 @@ class DefaultController extends FrontendController
      * @return Response
      * @throws \Exception
      */
-
-    public function productInfoPage(Request $request/*, int $id*/): Response
+    #[Route('/product-info/{id}', name: 'productInfoPage')]
+    public function productInfoPage(Request $request, int $id): Response
     {
-        $product = DataObject\Product::getById(/*$id*/ 6);
+        $product = DataObject\Product::getById($id);
+
+        /*$category = $product->*/
+
+
+
 
         return $this->render('default/product-info.html.twig', [
-            'controller_name' => 'FrontEndController',
             'product'=> $product,
+          /*  'category'=> $category,*/
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @throws \Exception
+     */
+
+    #[Route('/product-category-info/{id}', name: 'productCategory')]
+    public function productCategory(Request $request, int $id): Response
+    {
+        $repo = DataObject\Category::getById($id);
+
+        $categories = $repo->getProducts_categories();
+
+        return $this->render('default/products-cat.html.twig', [
+          'categories'=> $categories,
+            'category' => $repo
         ]);
     }
 
