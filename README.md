@@ -18,7 +18,7 @@ cd ./my-project
  * Open the `docker-compose.yml` file in an editor, uncomment all the `user: '1001:1001'` lines and update the ids if necessary
 ###
 ```bash
-docker-composer up -d 
+docker-compose up -d 
 ```
 ```bash
 docker-compose run --rm php-fpm vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore
